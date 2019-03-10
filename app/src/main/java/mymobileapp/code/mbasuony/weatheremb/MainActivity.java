@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void initialView() {
+    private void initialView()
+    {
         coordinatorLayout = findViewById(R.id.root_layout);
-
         toolbar = findViewById(R.id.toolbar_home);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).check();
     }
-
 
     private void buildLocationRequest()
     {

@@ -5,7 +5,7 @@ import mymobileapp.code.mbasuony.weatheremb.model.WeatherResulet;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface IOWeatherMap
+public interface IOpenWeatherMap
 {
 
     @GET("weather")
