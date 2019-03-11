@@ -2,6 +2,7 @@ package mymobileapp.code.mbasuony.weatheremb;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Looper;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -91,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
                         Snackbar.make(coordinatorLayout,"Permission Denied ",Snackbar.LENGTH_LONG).show();
                     }
                 }).check();
+
+
+
+
     }
 
     private void buildLocationRequest()

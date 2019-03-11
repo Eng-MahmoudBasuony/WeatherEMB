@@ -12,10 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.squareup.picasso.Picasso;
-
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -111,8 +108,6 @@ public class TodayWeatherFragment extends Fragment
 
     private void getWeatherInformation()
     {
-
-
         compositeDisposable.add(mService.getWeatherByLatLon(String.valueOf(Common.current_location.getLatitude()),
                                                            String.valueOf(Common.current_location.getLongitude()),Common.APP_ID,"metric")
                                .subscribeOn(Schedulers.io())
@@ -122,9 +117,15 @@ public class TodayWeatherFragment extends Fragment
                                    public void accept(WeatherResulet weatherResulet) throws Exception
                                    {
                                         //load Image
-                                       Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/10n.png")
-                                                              .append(weatherResulet.getWeather().get(0).getIcon())
-                                                              .append(".png").toString()).into(imageWeather);
+                                       //load Image
+                                      Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
+                                               .append(weatherResulet.getWeather().get(0).getIcon())
+                                               .append(".png").toString()).into(imageWeather);
+
+
+
+
+
                                        //---Load Information
                                        textCityName.setText(weatherResulet.getName());
                                        textDescription.setText(new StringBuilder("Weather in ")
