@@ -47,10 +47,10 @@ public class TodayWeatherFragment extends Fragment
   private LinearLayout weatherPanel;
   private ProgressBar loading;
 
-  private CompositeDisposable compositeDisposable;
-  private IOpenWeatherMap mService;
+   CompositeDisposable compositeDisposable;
+   IOpenWeatherMap mService;
 
-  private View itemView;
+    View itemView;
 
 
 
@@ -111,7 +111,9 @@ public class TodayWeatherFragment extends Fragment
 
     private void getWeatherInformation()
     {
-       compositeDisposable.add(mService.getWeatherByLatLon(String.valueOf(Common.current_location.getLatitude()),
+
+
+        compositeDisposable.add(mService.getWeatherByLatLon(String.valueOf(Common.current_location.getLatitude()),
                                                            String.valueOf(Common.current_location.getLongitude()),Common.APP_ID,"metric")
                                .subscribeOn(Schedulers.io())
                                .observeOn(AndroidSchedulers.mainThread())
@@ -123,7 +125,6 @@ public class TodayWeatherFragment extends Fragment
                                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/10n.png")
                                                               .append(weatherResulet.getWeather().get(0).getIcon())
                                                               .append(".png").toString()).into(imageWeather);
-
                                        //---Load Information
                                        textCityName.setText(weatherResulet.getName());
                                        textDescription.setText(new StringBuilder("Weather in ")
@@ -149,8 +150,10 @@ public class TodayWeatherFragment extends Fragment
                                    @Override
                                    public void accept(Throwable throwable) throws Exception
                                    {
-                                       Toast.makeText(getActivity(), "" +throwable.getMessage(), Toast.LENGTH_LONG).show();
-                                       Log.d("we",throwable.getMessage());
+                                       Toast.makeText(getActivity(), "throwable " +throwable.getMessage(), Toast.LENGTH_LONG).show();
+                                       Log.d("weBN",throwable.toString());
+                                      // Toast.makeText(getActivity(), "Longtatud ="+Common.current_location.getLongitude(), Toast.LENGTH_LONG).show();
+
                                    }
                                })
 

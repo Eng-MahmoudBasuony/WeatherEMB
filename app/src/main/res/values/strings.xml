@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Weather EMB</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">to day Weather</string>
 </resources>
