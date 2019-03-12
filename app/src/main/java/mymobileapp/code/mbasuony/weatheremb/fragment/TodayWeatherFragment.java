@@ -33,11 +33,11 @@ public class TodayWeatherFragment extends Fragment
 
   private ImageView imageWeather;
   private TextView  textCityName;
+  private TextView  textGeoCoords;
   private TextView  textPressure;
   private TextView  textHumidity;
   private TextView  textSunrise;
   private TextView  textSunset;
-  private TextView  textGeoCoords;
   private TextView  textTempreature;
   private TextView  textDescription;
   private TextView  textDateTime;
@@ -47,7 +47,7 @@ public class TodayWeatherFragment extends Fragment
    CompositeDisposable compositeDisposable;
    IOpenWeatherMap mService;
 
-    View itemView;
+  private View itemView;
 
 
 
@@ -109,7 +109,7 @@ public class TodayWeatherFragment extends Fragment
     private void getWeatherInformation()
     {
         compositeDisposable.add(mService.getWeatherByLatLon(String.valueOf(Common.current_location.getLatitude()),
-                                                           String.valueOf(Common.current_location.getLongitude()),Common.APP_ID,"metric")
+                                                            String.valueOf(Common.current_location.getLongitude()),Common.APP_ID,"metric")
                                .subscribeOn(Schedulers.io())
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe(new Consumer<WeatherResulet>() {
@@ -121,10 +121,6 @@ public class TodayWeatherFragment extends Fragment
                                       Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
                                                .append(weatherResulet.getWeather().get(0).getIcon())
                                                .append(".png").toString()).into(imageWeather);
-
-
-
-
 
                                        //---Load Information
                                        textCityName.setText(weatherResulet.getName());
@@ -157,10 +153,16 @@ public class TodayWeatherFragment extends Fragment
 
                                    }
                                })
-
-
-
                );
     }
+
+
+    @Override
+    public void onStop()
+    {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
 
 }

@@ -1,4 +1,4 @@
-package mymobileapp.code.mbasuony.weatheremb.adabter;
+package mymobileapp.code.mbasuony.weatheremb.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -15,12 +15,16 @@ import mymobileapp.code.mbasuony.weatheremb.R;
 import mymobileapp.code.mbasuony.weatheremb.common.Common;
 import mymobileapp.code.mbasuony.weatheremb.model.WeatherForecastResualt;
 
-public class WeatherForecastAdabter extends RecyclerView.Adapter<WeatherForecastAdabter.MyViewHolder>
+public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.MyViewHolder>
 {
 
     private Context context;
     private WeatherForecastResualt weatherForecastResualt;
 
+    public WeatherForecastAdapter(Context context, WeatherForecastResualt weatherForecastResualt) {
+        this.context = context;
+        this.weatherForecastResualt = weatherForecastResualt;
+    }
 
     @NonNull
     @Override

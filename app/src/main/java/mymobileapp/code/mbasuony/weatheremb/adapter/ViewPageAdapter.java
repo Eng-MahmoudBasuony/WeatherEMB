@@ -1,4 +1,4 @@
-package mymobileapp.code.mbasuony.weatheremb.adabter;
+package mymobileapp.code.mbasuony.weatheremb.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,13 +8,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPageAdabter extends FragmentPagerAdapter
+public class ViewPageAdapter extends FragmentPagerAdapter
 {
 
     private final List<Fragment> fragmentList=new ArrayList<>();
     private final List<String>fragmentTitle=new ArrayList<>();
 
-    public ViewPageAdabter(FragmentManager fm) {
+    public ViewPageAdapter(FragmentManager fm) {
         super(fm);
     }
 

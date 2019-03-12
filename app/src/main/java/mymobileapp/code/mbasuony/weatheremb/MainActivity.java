@@ -2,7 +2,6 @@ package mymobileapp.code.mbasuony.weatheremb;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Looper;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -21,7 +20,6 @@ import com.google.android.gms.location.LocationResult;
 
 import com.google.android.gms.location.LocationServices;
 import com.karumi.dexter.Dexter;
-import com.karumi.dexter.DexterActivity;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
@@ -29,8 +27,9 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
-import mymobileapp.code.mbasuony.weatheremb.adabter.ViewPageAdabter;
+import mymobileapp.code.mbasuony.weatheremb.adapter.ViewPageAdapter;
 import mymobileapp.code.mbasuony.weatheremb.common.Common;
+import mymobileapp.code.mbasuony.weatheremb.fragment.ForecastFragment;
 import mymobileapp.code.mbasuony.weatheremb.fragment.TodayWeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -129,8 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpViewPager(ViewPager viewPager)
     {
-        ViewPageAdabter adabter=new ViewPageAdabter(getSupportFragmentManager());
+        ViewPageAdapter adabter=new ViewPageAdapter(getSupportFragmentManager());
                         adabter.addFragment(TodayWeatherFragment.getInstance(),"Today");
+                        adabter.addFragment(ForecastFragment.getInstance(),"5 Days");
                         viewPager.setAdapter(adabter);
 
     }
