@@ -50,7 +50,6 @@ public class TodayWeatherFragment extends Fragment
   private View itemView;
 
 
-
   static TodayWeatherFragment instance;
 
   public static TodayWeatherFragment getInstance()
@@ -61,7 +60,6 @@ public class TodayWeatherFragment extends Fragment
       return instance;
   }
 
-
     public TodayWeatherFragment()
     {
         //Rx
@@ -70,7 +68,6 @@ public class TodayWeatherFragment extends Fragment
         mService=retrofit.create(IOpenWeatherMap.class);
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
@@ -85,8 +82,6 @@ public class TodayWeatherFragment extends Fragment
 
         return itemView;
     }
-
-
 
     private void initualView()
     {
@@ -103,8 +98,6 @@ public class TodayWeatherFragment extends Fragment
         weatherPanel=itemView.findViewById(R.id.weather_panel);
         loading=itemView.findViewById(R.id.progress_circular);
     }
-
-
 
     private void getWeatherInformation()
     {
