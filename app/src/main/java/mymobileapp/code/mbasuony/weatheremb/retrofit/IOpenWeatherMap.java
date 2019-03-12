@@ -17,12 +17,17 @@ public interface IOpenWeatherMap
 
 
     //Forecast
-
-
     @GET("forecast")
     Observable<WeatherForecastResualt> getForecastWeatherByLatLon(@Query("lat") String lat,
                                                                   @Query("lon")String lon,
                                                                   @Query("appid")String appid,
                                                                   @Query("units")String unit);
+
+    //City list
+    @GET("weather")
+    Observable<WeatherResulet> getWeatherByCityName(@Query("q") String cityName,
+                                                    @Query("appid")String appid,
+                                                    @Query("units")String unit);
+
 
 }
