@@ -157,5 +157,10 @@ public class TodayWeatherFragment extends Fragment
         super.onStop();
     }
 
-
+    @Override
+    public void onDestroy()
+    {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
 }

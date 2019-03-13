@@ -3,4 +3,5 @@
 
 
     <string name="hello_blank_fragment">to day Weather</string>
+    <string name="city_name">City Name</string>
 </resources>

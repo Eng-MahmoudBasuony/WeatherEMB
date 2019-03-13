@@ -118,4 +118,11 @@ public class ForecastFragment extends Fragment
         compositeDisposable.clear();
         super.onStop();
     }
+
+    @Override
+    public void onDestroy()
+    {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
 }

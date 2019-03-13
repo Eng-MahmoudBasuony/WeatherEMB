@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CityFragment"
+    android:orientation="vertical"
+    >
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mt_hint="@string/city_name"
+        android:id="@+id/search_bar_city"
+        app:mt_speechMode="false"
+        />
+
+
+    <FrameLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/weather_panel_searchbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <TextView
+                android:id="@+id/text_city_name_searchbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="Weather in Mansoura"
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/image_weather_searchbar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/ic_launcher"
+                    />
+
+                <TextView
+                    android:id="@+id/text_temperature_searchbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="50sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:text="14 C"
+                    android:layout_marginLeft="8dp"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/text_description_searchbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="14 C"
+                android:layout_marginLeft="8dp"
+                />
+
+            <TextView
+                android:id="@+id/text_date_time_searchbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="14 C"
+                android:layout_marginLeft="8dp"
+                />
+
+
+            <TableLayout
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:stretchColumns="*"
+                android:padding="16dp"
+                >
+
+                <TableRow android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Wind"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_wind_searchbar"
+                        android:text="Speed : 1 Deg : 1"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+                <TableRow android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Pressure"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_pressure_searchbar"
+                        android:text="145553,54556 hpa"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+                <TableRow android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Humidity"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_humidity_searchbar"
+                        android:text="100%"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+                <TableRow android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Sunrise"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_sunrise_searchbar"
+                        android:text="11:00"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Sunset"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_sunset_searchbar"
+                        android:text="18:00"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+                <TableRow android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="Geo coords"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_geo_coords_searchbar"
+                        android:text="[-32.0,-81.0]"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cell"
+                        android:layout_column="1"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_circular_searchbar"
+            android:indeterminate="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+
+    </FrameLayout>
+    
+    
+</LinearLayout>
