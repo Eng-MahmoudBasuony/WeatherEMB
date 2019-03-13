@@ -7,6 +7,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import java.util.List;
 
 import mymobileapp.code.mbasuony.weatheremb.adapter.ViewPageAdapter;
 import mymobileapp.code.mbasuony.weatheremb.common.Common;
+import mymobileapp.code.mbasuony.weatheremb.fragment.CityFragment;
 import mymobileapp.code.mbasuony.weatheremb.fragment.ForecastFragment;
 import mymobileapp.code.mbasuony.weatheremb.fragment.TodayWeatherFragment;
 
@@ -131,10 +133,22 @@ public class MainActivity extends AppCompatActivity {
         ViewPageAdapter adabter=new ViewPageAdapter(getSupportFragmentManager());
                         adabter.addFragment(TodayWeatherFragment.getInstance(),"Today");
                         adabter.addFragment(ForecastFragment.getInstance(),"5 Days");
+                        adabter.addFragment(CityFragment.getInstance(),"Cities");
                         viewPager.setAdapter(adabter);
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if (viewPager.getCurrentItem() != 0)
+        {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1,true);
+        }else
 
+            {
+              finish();
+            }
+    }
 
 }

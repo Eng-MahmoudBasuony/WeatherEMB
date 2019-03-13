@@ -4,9 +4,11 @@ package mymobileapp.code.mbasuony.weatheremb.fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +50,7 @@ import retrofit2.Retrofit;
 public class CityFragment extends Fragment
 {
 
-    private List<String> listCities;
+     List<String> listCities;
     private MaterialSearchBar searchBar;
 
 
@@ -71,7 +73,7 @@ public class CityFragment extends Fragment
     private View itemView;
 
 
-    static CityFragment instance;
+     static CityFragment instance;
 
     public static CityFragment getInstance()
     {
@@ -98,12 +100,18 @@ public class CityFragment extends Fragment
            itemView= inflater.inflate(R.layout.fragment_city, container, false);
 
         initualView();
-
         //Load Cities
         new LoadCities().execute();
 
+
+
+
+
         return itemView;
     }
+
+
+
 
 
     private void initualView()
@@ -131,10 +139,11 @@ public class CityFragment extends Fragment
         @Override
         protected List<String> doInBackgroundSimple()
         {
-            listCities=new ArrayList<>();
 
+            listCities = new ArrayList<>();
             try
             {
+
              StringBuilder builder=new StringBuilder();
 
 
@@ -160,7 +169,7 @@ public class CityFragment extends Fragment
                e.printStackTrace();
             }
 
-            return null;
+            return listCities;
         }
 
         @Override
@@ -173,30 +182,26 @@ public class CityFragment extends Fragment
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after)
                 {
-
                 }
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count)
                 {
-                     List<String>suggest=new ArrayList<>();
+                   List<String>suggest=new ArrayList<>();
 
-                     for (String search:listCity)
-                     {
+                    for (String search:listCity)
+                    {
                         if (search.toLowerCase().contains(searchBar.getText().toLowerCase()))
                         {
-                             suggest.add(search);
+                            suggest.add(search);
                         }
-                     }
-
-                     searchBar.setLastSuggestions(suggest);
-
-
+                    }
+                    searchBar.setLastSuggestions(suggest);
                 }
 
                 @Override
                 public void afterTextChanged(Editable s)
                 {
+
 
                 }
             });
@@ -213,7 +218,6 @@ public class CityFragment extends Fragment
                 public void onSearchConfirmed(CharSequence text)
                 {
                     getWeatherInformation(text.toString());
-
                     searchBar.setLastSuggestions(listCity);
                 }
 
@@ -224,6 +228,10 @@ public class CityFragment extends Fragment
                 }
             });
 
+            searchBar.setLastSuggestions(listCity);
+
+            loading.setVisibility(View.GONE);
+          //  weatherPanel.setVisibility(View.VISIBLE);
 
         }
 
@@ -293,4 +301,9 @@ public class CityFragment extends Fragment
         compositeDisposable.clear();
         super.onStop();
     }
+
+
+
+
+
 }

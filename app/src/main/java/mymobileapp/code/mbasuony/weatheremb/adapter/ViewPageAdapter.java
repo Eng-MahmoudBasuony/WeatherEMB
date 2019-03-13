@@ -16,6 +16,8 @@ public class ViewPageAdapter extends FragmentPagerAdapter
 
     public ViewPageAdapter(FragmentManager fm) {
         super(fm);
+
+      //  fm.beginTransaction().addToBackStack()
     }
 
 
