@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather EMB</string>
+    <string name="today_fragment">الطقس اليوم</string>
+    <string name="city_name">اسم المدينه</string>
+    <string name="forecastfive">توقعات كل 3 سعات لمده 5 ايام</string>
+    <string name="Pressure">الضغط</string>
+    <string name="Wind">الرياح</string>
+    <string name="Humidity">رطوبة</string>
+    <string name="Sunrise">شروق الشمس</string>
+    <string name="Sunset">غروب الشمس</string>
+    <string name="Geo_coords">التوزيع الجغرافي</string>
+    <string name="Weather_in">الطقس فى </string>
+    <string name="Deg">درجه : </string>
+    <string name="Speed">سرعه : </string>
+    <string name="Name">الاسم </string>
+    <string name="status">الحاله</string>
+    <string name="unit_pre"> هيكتوباسكال</string>
+
+</resources>

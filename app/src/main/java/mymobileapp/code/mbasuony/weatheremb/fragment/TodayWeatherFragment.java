@@ -41,6 +41,8 @@ public class TodayWeatherFragment extends Fragment
   private TextView  textTempreature;
   private TextView  textDescription;
   private TextView  textDateTime;
+  private TextView  textWinSpeed;
+  private TextView  textWinDeg;
   private LinearLayout weatherPanel;
   private ProgressBar loading;
 
@@ -72,10 +74,8 @@ public class TodayWeatherFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
-
         // Inflate the layout for this fragment
          itemView= inflater.inflate(R.layout.fragment_today, container, false);
-
          initualView();
 
          getWeatherInformation();
@@ -95,12 +95,20 @@ public class TodayWeatherFragment extends Fragment
         textTempreature=itemView.findViewById(R.id.text_temperature);
         textDescription=itemView.findViewById(R.id.text_description);
         textDateTime=itemView.findViewById(R.id.text_date_time);
+        textWinDeg=itemView.findViewById(R.id.text_wind_Deg);
+        textWinSpeed=itemView.findViewById(R.id.text_wind_Speed);
         weatherPanel=itemView.findViewById(R.id.weather_panel);
         loading=itemView.findViewById(R.id.progress_circular);
     }
 
     private void getWeatherInformation()
     {
+
+        final String weather_in=getResources().getString(R.string.Weather_in);
+        final String winDeg=getResources().getString(R.string.Deg);
+        final String winSpeed=getResources().getString(R.string.Speed);
+        final String unitPreature=getResources().getString(R.string.unit_pre);
+
         compositeDisposable.add(mService.getWeatherByLatLon(String.valueOf(Common.current_location.getLatitude()),
                                                             String.valueOf(Common.current_location.getLongitude()),Common.APP_ID,"metric")
                                .subscribeOn(Schedulers.io())
@@ -117,18 +125,23 @@ public class TodayWeatherFragment extends Fragment
 
                                        //---Load Information
                                        textCityName.setText(weatherResulet.getName());
-                                       textDescription.setText(new StringBuilder("Weather in ")
-                                                                   .append(weatherResulet.getName()).toString());
+                                       textDescription.setText(new StringBuilder(weather_in+" ")
+                                                                             .append(weatherResulet.getName()).toString());
+                                       textWinDeg.setText(new StringBuilder(winDeg)
+                                                                              .append(weatherResulet.getWind().getDeg()).toString());
+                                       textWinSpeed.setText(new StringBuilder(winSpeed)
+                                                                            .append(weatherResulet.getWind().getSpeed()).toString());
                                        textTempreature.setText(new StringBuilder(String.valueOf(weatherResulet.getMain().getTemp()))
-                                                                         .append("°C").toString());
-                                       textDateTime.setText(Common.convertUnixToDate(weatherResulet.getDt()));
+                                                                            .append("°C").toString());
                                        textPressure.setText(new StringBuilder(String.valueOf(weatherResulet.getMain().getPressure()))
-                                                                              .append(" hpa").toString());
-                                       textHumidity.setText(new StringBuilder(String.valueOf(weatherResulet.getMain().getHumidity())).append(" %").toString());
+                                                                              .append(unitPreature).toString());
+                                       textGeoCoords.setText(new StringBuilder("[").append(weatherResulet.getCoord().toString())
+                                                                             .append("]").toString());
+                                       textHumidity.setText(new StringBuilder(String.valueOf(weatherResulet.getMain().getHumidity()))
+                                                                             .append(" %").toString());
                                        textSunrise.setText(Common.convertUnixToHour(weatherResulet.getSys().getSunrise()));
                                        textSunset.setText(Common.convertUnixToHour(weatherResulet.getSys().getSunset()));
-                                       textGeoCoords.setText(new StringBuilder("[").append(weatherResulet.getCoord().toString())
-                                                                         .append("]").toString());
+                                       textDateTime.setText(Common.convertUnixToDate(weatherResulet.getDt()));
 
                                        //Display Panel
                                         weatherPanel.setVisibility(View.VISIBLE);
@@ -148,7 +161,6 @@ public class TodayWeatherFragment extends Fragment
                                })
                );
     }
-
 
     @Override
     public void onStop()

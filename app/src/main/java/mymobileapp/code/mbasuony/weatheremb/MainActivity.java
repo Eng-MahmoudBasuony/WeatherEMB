@@ -2,6 +2,7 @@ package mymobileapp.code.mbasuony.weatheremb;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Looper;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private LocationCallback locationCallback;
     private LocationRequest locationRequest;
 
+    private String foreCastFive;
+    private String today;
+    private String cityNam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
         initialView();
         requestPermission();
+
+
     }
 
 
@@ -118,8 +124,9 @@ public class MainActivity extends AppCompatActivity {
 
                Common.current_location=locationResult.getLastLocation();
                viewPager=(ViewPager)findViewById(R.id.view_pager);
+               viewPager.setBackgroundColor(Color.parseColor("#fbfad3"));
                setUpViewPager(viewPager);
-               tabLayout = findViewById(R.id.tabs);
+                tabLayout = findViewById(R.id.tabs);
                tabLayout.setupWithViewPager(viewPager);
                //log
                Log.d("Location",locationResult.getLastLocation().getLatitude()+","+locationResult.getLastLocation().getLongitude());
@@ -130,12 +137,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpViewPager(ViewPager viewPager)
     {
-        ViewPageAdapter adabter=new ViewPageAdapter(getSupportFragmentManager());
-                        adabter.addFragment(TodayWeatherFragment.getInstance(),"Today");
-                        adabter.addFragment(ForecastFragment.getInstance(),"5 Days");
-                        adabter.addFragment(CityFragment.getInstance(),"Cities");
-                        viewPager.setAdapter(adabter);
+        foreCastFive=getResources().getString(R.string.forecastfive);
+        today=getResources().getString(R.string.today_fragment);
+        cityNam=getResources().getString(R.string.city_name);
 
+        ViewPageAdapter adabter=new ViewPageAdapter(getSupportFragmentManager());
+                        adabter.addFragment(TodayWeatherFragment.getInstance(),today);
+                        adabter.addFragment(ForecastFragment.getInstance(),foreCastFive);
+                        adabter.addFragment(CityFragment.getInstance(),cityNam);
+                        viewPager.setAdapter(adabter);
     }
 
     @Override

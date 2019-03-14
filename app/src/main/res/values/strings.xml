@@ -1,7 +1,20 @@
 <resources>
     <string name="app_name">Weather EMB</string>
-
-
-    <string name="hello_blank_fragment">to day Weather</string>
+    <string name="today_fragment">to day Weather</string>
     <string name="city_name">City Name</string>
+    <string name="forecastfive">5 day / 3 hour Forecast</string>
+    <string name="Wind">Wind</string>
+    <string name="Pressure">Pressure</string>
+    <string name="Humidity">Humidity</string>
+    <string name="Sunrise">Sunrise</string>
+    <string name="Sunset">Sunset</string>
+    <string name="Geo_coords">Geo coords</string>
+    <string name="Weather_in">Weather in</string>
+    <string name="Deg">Deg : </string>
+    <string name="Speed">Speed : </string>
+    <string name="Name">Name</string>
+    <string name="status">Status</string>
+    <string name="unit_pre">hpa </string>
+
+
 </resources>
