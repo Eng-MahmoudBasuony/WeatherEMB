@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPageAdapter adabter=new ViewPageAdapter(getSupportFragmentManager());
                         adabter.addFragment(TodayWeatherFragment.getInstance(),today);
                         adabter.addFragment(ForecastFragment.getInstance(),foreCastFive);
-                        adabter.addFragment(CityFragment.getInstance(),cityNam);
+                      //adabter.addFragment(CityFragment.getInstance(),cityNam);
                         viewPager.setAdapter(adabter);
     }
 
